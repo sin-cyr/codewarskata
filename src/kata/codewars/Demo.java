@@ -157,14 +157,21 @@ public class Demo {
 				    }
 				    return res.toString();
 				  }
-			 //reverse polish notation
-			 public static double evaluate(String expr) {
-				 
-				 String[] nums = expr.split("\\s+");
-				 for (String string : nums) {
-					System.out.println(string);
-				}
-				 
-				    return 0;
+			 //remove first and last chars of a string
+			 public static String remove(String str) {
+
+			    return str.substring(1, str.length()-1);
+			     
+			     
+			    }
+			 //Given your house number address and length of street n, give the house number on the opposite side of the street.
+			 public static long overTheRoad(long address, long n) {
+				    return 2 * n + 1 - address;
 				  }
+			 
+			 //calculate growth of population
+			 public static int nbYear(int p0, double percent, int aug, int p) {//population i.e. 1000, percent 0.02, inhabitants 50, population to surpass
+			        // your code
+				 
+			    }
 }
