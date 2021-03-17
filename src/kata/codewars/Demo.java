@@ -1,7 +1,9 @@
 package kata.codewars;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,7 +22,19 @@ public class Demo {
 		//System.out.println(sortDesc3(1425));
 		//System.out.println(toCamelCase("the-stealth-warrior"));
 		String expr = "5 1 2 + 4 * + 3 -";
-		System.out.println(evaluate(expr));
+		//System.out.println(evaluate(expr));
+		
+		//uals("1024x768", Kata.findScreenHeight(1024,"4:3"));
+		//System.out.println(findScreenHeight(1024, "4:3"));
+		//System.out.println(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"));
+		//4281, 5087, 2
+		//System.out.println(dateNbDays(4281, 5087, 2));
+		
+		String str = "Hello";
+		System.out.println(str.length());
+		
+	
+		
 	}
 
 	
@@ -170,8 +184,63 @@ public class Demo {
 				  }
 			 
 			 //calculate growth of population
-			 public static int nbYear(int p0, double percent, int aug, int p) {//population i.e. 1000, percent 0.02, inhabitants 50, population to surpass
-			        // your code
-				 
+			//population i.e. 1000, percent 0.02, inhabitants 50, population to surpass
+			 //1500, 5, 100, 5000),15);
+			   public static int nbYear(int p0, double percent, int aug, int p) {
+			        int year = 0;
+			        int population = p0;
+			        while (population < p) {
+						population += population*percent/100 + aug;
+						year++;
+			        }
+			        return year;
 			    }
+			   //       assertEquals("1024x768", Kata.findScreenHeight(1024,"4:3"));
+			   public static String findScreenHeight(int width, String ratio) {
+			    	  
+				 		      
+				      String[] aps = ratio.split(":");
+				     // System.out.println(ratioFirst + " " + ratioSecond);
+				      
+				      int height = width * Integer.valueOf(aps[0]) / Integer.valueOf(aps[1]);
+				     
+				      return width + "x" + height;
+				    }
+			   public static String printerError(String s) {
+			     
+				   String result = "";
+				   int length = s.length();
+				   int error =0;
+				   char[] chars = s.toCharArray();
+				   
+				   for (char c : chars) {
+					if (!(c >= 'a' && c <= 'm')) {
+						error++;
+					}
+				}
+				 return result.concat(Integer.valueOf(error) + "/" + Integer.valueOf(length));  
+			    }
+			   // testing(DateDays.dateNbDays(4281, 5087, 2), "2024-07-03");
+			   public static String dateNbDays(double amount, double target, double intrest) {
+			      LocalDate dt = LocalDate.of(2016, 1, 1);
+				 
+			        while (amount < target)
+			        {
+			            amount += amount * (intrest / 36000);
+			            dt = dt.plusDays(1);
+			        }
+
+			        return dt.toString();
+			    }
+//			   public static int solve(final String digits) {//127241
+//				  int start=0;  
+//				  int end =5; 
+//				 
+//				  for (int i=0; i<)
+//				  String answer = digits.substring(start, end);
+//				 
+//				 
+//				   
+//			        return; // you code here
+//			    }
 }
