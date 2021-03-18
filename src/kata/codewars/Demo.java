@@ -3,9 +3,11 @@ package kata.codewars;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Demo {
 
@@ -31,7 +33,10 @@ public class Demo {
 		//System.out.println(dateNbDays(4281, 5087, 2));
 		
 		String str = "Hello";
-		System.out.println(str.length());
+		//System.out.println(str.length());
+		//System.out.println(longest("aretheyhere", "yestheyarehere"));
+		int[] arr = {2, 5, 34, 6};
+		System.out.println(oddOrEven(arr));
 		
 	
 		
@@ -232,15 +237,47 @@ public class Demo {
 
 			        return dt.toString();
 			    }
-//			   public static int solve(final String digits) {//127241
-//				  int start=0;  
-//				  int end =5; 
-//				 
-//				  for (int i=0; i<)
-//				  String answer = digits.substring(start, end);
-//				 
-//				 
-//				   
-//			        return; // you code here
-//			    }
+			   public static int solve(final String digits) {//127241
+				   int max = 0;
+			        for (int i = 0; i < digits.length()-4; i++)
+			            max = Math.max(Integer.valueOf(digits.substring(i, i+5)), max);
+			        return max;
+			    }
+			   public static int potatoes(int p0, int w0, int p1) {// 99,100,98
+			        return (int) Math.floor(w0 * (100-p0) / (100 -p1));
+			      
+			      
+			    }
+			   /*
+			    * Take 2 strings s1 and s2 including only letters from ato z. 
+			    * Return a new sorted string, the longest possible, containing distinct letters 
+			    * - each taken only once - coming from s1 or s2.
+			    */
+			   public static String longest (String s1, String s2) {
+			      
+				String result = s1 + s2;
+				List<String> strs = new ArrayList<>(Arrays.asList(result.split("")));
+				
+				Collections.sort(strs);
+				Set<String> res = new LinkedHashSet<>(strs);
+				return String.join("", res);
+				
+			   }
+			   public static String oddOrEven (int[] array) {
+				   
+				   String even = "even";
+				   String odd = "odd";
+				   int sum =0;
+				   
+				   				   
+				   for (int i=0; i<array.length;i++) {
+					   sum += array[i];
+				   }
+				   if (sum % 2 == 0 || sum == 0) {
+					   return even;
+				   }else{
+					   return odd;					   
+				   }
+				   
+				   }
 }
